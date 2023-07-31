@@ -56,24 +56,34 @@ pin-project-lite = "0.2"
 phf = "0.11"
 postgres-protocol = { version = "0.6.5", path = "../postgres-protocol" }
 postgres-types = { version = "0.2.4", path = "../postgres-types" }
-tokio = { version = "1.27", features = ["io-util"] }
-tokio-util = { version = "0.7", features = ["codec"] }
+tokio = { git = "https://github.com/wasix-org/tokio.git", branch = "epoll", features = [
+    "io-util",
+    "fs",
+], version = "1" }
+
+tokio-util = { version = "0.7", features = [
+    "codec",
+], git = "https://github.com/wasix-org/tokio.git", branch = "epoll" }
 rand = "0.8.5"
 
-[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
-socket2 = { version = "0.5", features = ["all"] }
+# [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+socket2 = { version = "0.5", features = [
+    "all",
+], git = "https://github.com/wasix-org/socket2.git", branch = "v0.5.2" }
 
 [dev-dependencies]
 futures-executor = "0.3"
 criterion = "0.5"
 env_logger = "0.10"
-tokio = { version = "1.0", features = [
+tokio = { git = "https://github.com/wasix-org/tokio.git", branch = "epoll", features = [
     "macros",
     "net",
     "rt",
     "rt-multi-thread",
     "time",
-] }
+    "fs",
+], version = "=1.24.2" }
+
 
 bit-vec-06 = { version = "0.6", package = "bit-vec" }
 chrono-04 = { version = "0.4", package = "chrono", default-features = false }
