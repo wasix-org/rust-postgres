@@ -14,3 +14,7 @@ resolver = "2"
 
 [profile.release]
 debug = 2
+
+[patch.crates-io]
+tokio = { git = "https://github.com/wasix-org/tokio.git", branch = "epoll" }
+libc = { git = "https://github.com/wasix-org/libc.git", branch = "v0.2.147" }

@@ -50,7 +50,7 @@ fallible-iterator = "0.2"
 futures-channel = { version = "0.3", features = ["sink"] }
 futures-util = { version = "0.3", features = ["sink"] }
 log = "0.4"
-parking_lot = "0.12"
+parking_lot = { git = "https://github.com/wasix-org/parking_lot.git", version = "0.12.1" }
 percent-encoding = "2.0"
 pin-project-lite = "0.2"
 phf = "0.11"
@@ -59,7 +59,7 @@ postgres-types = { version = "0.2.4", path = "../postgres-types" }
 tokio = { git = "https://github.com/wasix-org/tokio.git", branch = "epoll", features = [
     "io-util",
     "fs",
-], version = "1" }
+], version = "=1.24.2" }
 
 tokio-util = { version = "0.7", features = [
     "codec",
@@ -67,9 +67,9 @@ tokio-util = { version = "0.7", features = [
 rand = "0.8.5"
 
 # [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
-socket2 = { version = "0.5", features = [
+socket2 = { version = "0.5", git = "https://github.com/wasix-org/socket2.git", features = [
     "all",
-], git = "https://github.com/wasix-org/socket2.git", branch = "v0.5.2" }
+] }
 
 [dev-dependencies]
 futures-executor = "0.3"
