@@ -11,7 +11,7 @@ keywords = ["database", "postgres", "postgresql", "sql", "async"]
 categories = ["database"]
 
 # Custom Build script to build for WASIX
-build = "build.rs"
+# build = "build.rs"
 
 [lib]
 test = false
